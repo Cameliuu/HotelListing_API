@@ -44,10 +44,10 @@ namespace HotelListing_API.Features.Users
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult> Login([FromBody]LoginModel entity)
         {
-          var user =await _authManager.Login(entity);
-          if (!user)
+          var authResponse =await _authManager.Login(entity);
+          if (authResponse is null)
               return Unauthorized();
-          return Ok();
+          return Ok(authResponse);
         }
 
     }
