@@ -311,3 +311,8 @@ HotelListing_API.Features.Hotel.Hotel -> HotelListing_API.Features.Country.GetCo
 2023-05-15 08:44:53.787 -07:00 [INF] HTTP POST /api/Values/register responded 200 in 2917.5228 ms
 2023-05-15 08:45:00.309 -07:00 [INF] HTTP POST /api/Values/login responded 401 in 132.2105 ms
 2023-05-15 08:45:18.027 -07:00 [INF] HTTP POST /api/Values/login responded 200 in 744.7651 ms
+2023-05-15 08:46:32.781 -07:00 [INF] HTTP POST /api/Values/login responded 200 in 3392.3881 ms
+2023-05-15 08:46:38.227 -07:00 [INF] HTTP POST /api/Values/login responded 200 in 187.8993 ms
+2023-05-15 08:46:41.210 -07:00 [INF] HTTP POST /api/Values/login responded 200 in 116.3402 ms
+2023-05-15 08:57:14.776 -07:00 [INF] HTTP POST /api/Country responded 401 in 71.9937 ms
+2023-05-15 09:07:05.413 -07:00 [INF] HTTP POST /api/Values/login responded 200 in 3902.8427 ms

@@ -9,6 +9,7 @@
     using HotelListing_API;
     using HotelListing_API.Contracts;
     using HotelListing_API.Features.Country;
+    using Microsoft.AspNetCore.Authorization;
 
     namespace HotelListing_API.Controllers
     {
@@ -50,6 +51,7 @@
             // PUT: api/Country/5
             // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
             [HttpPut("{id}")]
+            [Authorize(Roles = "Administrator")]
             public async Task<IActionResult> PutCountry(int id, UpdateCountryModel entity)
             {
                 if (id != entity.Id)
@@ -71,6 +73,7 @@
             // POST: api/Country
             // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
             [HttpPost]
+            [Authorize(Roles = "Administrator")]
             public async Task<ActionResult<Country>> PostCountry(CreateCountryModel entity)
             {
                 var country = _mapper.Map<Country>(entity);
@@ -80,6 +83,7 @@
 
             // DELETE: api/Country/5
             [HttpDelete("{id}")]
+            [Authorize(Roles = "Administrator")]
             public async Task<IActionResult> DeleteCountry(int id)
             {
                 var country = await _repository.GetAsync(id);

@@ -10,6 +10,7 @@ using HotelListing_API;
 using HotelListing_API.Contracts;
 using HotelListing_API.Features.Country;
 using HotelListing_API.Repository;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelListing_API.Features.Hotel
 {
@@ -54,9 +55,10 @@ namespace HotelListing_API.Features.Hotel
         // PUT: api/Hotel/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> PutHotel(int id, Hotel entity)
         {
-            if (id != entity.Id)
+            if (id != entity.Id)    
             {
                 return BadRequest("ID Not found");
             }
@@ -72,6 +74,7 @@ namespace HotelListing_API.Features.Hotel
         // POST: api/Hotel
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<Hotel>> PostHotel(CreateHotelModel entity)
         {
             var hotel = _mapper.Map<Hotel>(entity);
@@ -82,6 +85,7 @@ namespace HotelListing_API.Features.Hotel
 
         // DELETE: api/Hotel/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteHotel(int id)
         {
             var hotel = await _repository.GetAsync(id);
